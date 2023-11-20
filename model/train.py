@@ -5,7 +5,7 @@ import torch.optim as optim
 import time
 from tqdm.auto import tqdm
 from model import *#build_model
-from datasets import *# get_files, file_loader
+from dataset import *# get_files, file_loader
 from utils import *# save_model, save_plots
 from model import *# pretrained_model
 
@@ -45,7 +45,7 @@ def train(model, trainloader, optimizer, criterion):
         image, labels = data
         image = image.to(device)
         labels = labels.to(device)
-        optimizer = zero_grad()
+        optimizer.zero_grad()
         
         # Forward prop
         outputs = model(image)
@@ -85,7 +85,7 @@ def validate(model, testloader, criterion):
             image, labels = data
             image = image.to(device)
             labels = labels.to(device)
-            optimizer = zero_grad()
+            optimizer.zero_grad()
             
             # Forward prop
             outputs = model(image)
@@ -122,18 +122,20 @@ if __name__ == '__main__':
     print(f"Learning rate: {learning_rate}")
     print(f"Epochs: {epochs}\n")
     
-    model = pretrained_model(
+    model = build_model(
         pretrained = True,
         fine_tune = True,
         num_classes = len(dataset_classes)
     ).to(device)
     
+    
+    
     # Total parameters and trainable parameters
     total_parameters = sum(p.numel() for p in model.parameters())
-    print(f"{total_parameters:, } parameters.")
+    print(f"{total_parameters:,} parameters.")
     trainable_parameters = sum(
         p.numel() for p in model.parameters() if p.requires_grad)
-    print(f"{trainable_parameters:, } training parameters.")
+    print(f"{trainable_parameters:,} training parameters.")
     
     # Optimizer
     optimizer = optim.Adam(model.parameters(), lr = learning_rate)
@@ -146,7 +148,7 @@ if __name__ == '__main__':
     
     # Train
     for epoch in range(epochs):
-        print(f"Epoch {epoch + 1} of {epoch}")
+        print(f"Epoch {epoch + 1} of {epochs}")
         train_loss_per_epoch, train_accuracy_per_epoch = train(model,
                                                                train_loader,
                                                                optimizer,
@@ -161,13 +163,13 @@ if __name__ == '__main__':
         print(f"Training loss: {train_loss_per_epoch:.3f}, Training accuracy: {train_accuracy_per_epoch:.3f}")
         print(f"Validation loss: {val_loss_per_epoch:.3f}, Validation accuracy: {val_accuracy_per_epoch:.3f}")
         #print("-.-" * 10)
-        print("~ " * 55)
+        print("~ " * 100)
         time.sleep(3)
         
     # Save model
     save_model(epochs, model, optimizer, criterion)
     # Save loss and accuracy plots
-    save_plots(train_accuracy, validation_accuracy, train_loss, validation_loss)
+    save_plots(training_accuracy, validation_accuracy, train_loss, validation_loss)
     print("Done")
     
     
