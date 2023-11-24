@@ -45,7 +45,7 @@ for test_file in test_files:
     outputs = model(image)
     outputs = outputs.detach().numpy()
     predicted_class = class_names[np.argmax(outputs[0])]
-    print(f"Actual class: {actual_class}, Predicted: {predicted_class.lower()}")
+    print(f"Predicted: {predicted_class.lower()}\t Actual class: {actual_class}")
     
     # Inscribe the text onto the images
     cv2.putText(
@@ -55,25 +55,22 @@ for test_file in test_files:
         cv2.FONT_HERSHEY_SIMPLEX,
         0.7,
         (100, 100, 225),
-        #(65, 65, 155),
         1,
         lineType = cv2.LINE_AA
     )
     cv2.putText(
         test_image,
         f"Predicted: {predicted_class.lower()}",
-        (10, 30),
+        (10, 35),
         cv2.FONT_HERSHEY_SIMPLEX,
         0.7,
-        #(100, 100, 225),
         (65, 65, 155),
         1,
         lineType = cv2.LINE_AA
     )
     
-    cv2.imshow("Result", test_image)
-    cv2.waitKey(0)
-    cv2.imwrite(f"../outputs/{actual_class}.png", test_file)
+
+    cv2.imwrite(f"../outputs/{actual_class}.png", test_image)
     
     
 # Run with "python inference.py"
