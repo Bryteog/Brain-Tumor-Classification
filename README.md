@@ -16,3 +16,4 @@ Version 3 after 30 epochs of training had 86.9% and 84.8.1% accuracy and losses 
 The model predicted 758 of 854 images correctly when run on a separate directory of tumor images.
 
 Running any of the 'main' files works.
+##### The second version consists of the model, dataset, utils, train and inference files.
