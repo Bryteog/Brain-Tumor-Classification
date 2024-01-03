@@ -20,7 +20,7 @@ The model predicted 758 of 854 images correctly when run on a separate directory
 
 
 <br>
-g
+<br>
 <br>
 
 <picture>
