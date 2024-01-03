@@ -19,12 +19,14 @@ Version 3 after 30 epochs of training had 86.9% and 84.8.1% accuracy and losses 
 The model predicted 758 of 854 images correctly when run on a separate directory of tumor images.
 
 
-
+<br>
+g
+<br>
 
 <picture>
  <source media="(prefers-color-scheme: dark)" srcset="output.png">
  <source media="(prefers-color-scheme: light)" srcset="output.png">
- <img alt="Sample image showing the actual mask and the predicted mask" src="output.png">
+ <img alt="Image showing the predicted labels and actual labels of 50 MRI images" src="output.png">
 </picture>
 
 
