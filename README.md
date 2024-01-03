@@ -12,8 +12,21 @@ The model has three versions, the first two versions are trained with the Torch 
 
 The accuracy of training and testing sets for version 1 after 15 epochs is 98.9% and 98.1% respectively with losses of 0.031 and 0.083.
 
+
+**Insert Summary for v2**
+
 Version 3 after 30 epochs of training had 86.9% and 84.8.1% accuracy and losses of 0.3435 and 0.2842 for both the training and testing sets respectively.
 The model predicted 758 of 854 images correctly when run on a separate directory of tumor images.
+
+
+
+
+<picture>
+ <source media="(prefers-color-scheme: dark)" srcset="output.png">
+ <source media="(prefers-color-scheme: light)" srcset="output.png">
+ <img alt="Sample image showing the actual mask and the predicted mask" src="output.png">
+</picture>
+
 
 Running any of the 'main' files works.
 ##### The second version consists of the model, dataset, utils, train and inference files.
