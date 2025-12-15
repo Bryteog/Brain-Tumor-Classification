@@ -30,5 +30,5 @@ The model predicted 758 of 854 images correctly when run on a separate directory
 
 
 Running any of the 'main' files works.
-##### The second version consists of the model, dataset, utils, train and inference files.
+
 
