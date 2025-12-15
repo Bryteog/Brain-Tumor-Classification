@@ -5,7 +5,7 @@ Built a model to classify MRI images of the human head as having a specified typ
 
 #### Model
 
-Image preprocessing via flipping, rescaling, normalising, zooming and rotation is applied to the train set only. The Resnet50 and efficientnet pretrained model is used for training, the last layer is changed to reflect the number of classes.
+Image preprocessing via flipping, rescaling, normalising, zooming and rotation is applied to the train set only. The Resnet50 and Efficientnet pretrained model is used for training, the last layer is changed to reflect the number of classes.
 The model has three versions, the first two versions are trained with the Torch library and uses efficientnet and Resnet50 as their pretrained layers. The third uses tensorflow with no pretrained layer.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -14,9 +14,9 @@ The accuracy of training and testing sets for version 1 after 15 epochs is 98.9%
 
 Version 3 after 30 epochs of training had 86.9% and 84.8.1% accuracy and losses of 0.3435 and 0.2842 for both the training and testing sets respectively.
 
+------------------------------------------------------------------------------------------------------
+The model predicted 758 of 802 images correctly when run on a separate directory of mri images.
 
-The model predicted 758 of 802 images correctly when run on a separate directory of tumor images.
-------------------------------------------------------------------------------------------------------------
 
 <br>
 <br>
@@ -30,6 +30,7 @@ The model predicted 758 of 802 images correctly when run on a separate directory
 
 
 Running any of the 'main' files works.
+
 
 
 
